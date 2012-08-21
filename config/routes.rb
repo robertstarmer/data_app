@@ -6,4 +6,5 @@ DataApp::Application.routes.draw do
 
   resources :buttons
 
+  match '/display', to: 'buttons#display'
 end

@@ -3,7 +3,7 @@
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 <% @buttons.each do |button| %>
-  <%= form_tag({controller: 'clicks', action: 'create'}, method: 'post') do %>
+  <%= form_tag({controller: 'clicks', action: 'create'}, method: 'post', remote: 'true') do %>
     <div class="<%= button.name %>">
     <%= hidden_field_tag(:button_id, button.id) %>
     <%= submit_tag(button.name, class: "btn btn-large btn-primary") %>

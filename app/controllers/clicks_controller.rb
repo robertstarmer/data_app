@@ -41,14 +41,23 @@ class ClicksController < ApplicationController
   # POST /clicks.json
   def create
     @click = Click.new(id: params[:click],button_id: params[:button_id])
+    @button = Button.find_by_id(params[:button_id])
+    if @button[:counter]
+      @button[:counter] += 1
+    else
+      @button[:counter] = 1
+    end
+    @button.save
     
     respond_to do |format|
       if @click.save
         format.html { redirect_to buttons_path, notice: 'Click was successfully created.' }
         format.json { render json: @click, status: :created, location: @click }
+        format.js
       else
         format.html { redirect_to buttons_path, notice: "Click unsuccessful" }
         format.json { render json: @click.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -80,4 +89,5 @@ class ClicksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

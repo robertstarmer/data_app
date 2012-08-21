@@ -65,4 +65,14 @@ class ButtonsController < ApplicationController
   end
 
 
+  def display
+    @buttons = Button.all
+
+    respond_to do |format|
+      format.html # display.html.erb
+      format.json { render json: @buttons }
+    end
+  end
+
+
 end
