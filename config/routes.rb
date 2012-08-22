@@ -7,4 +7,5 @@ DataApp::Application.routes.draw do
   resources :buttons
 
   match '/display', to: 'buttons#display'
+  match '/clear', to: 'buttons#clear'
 end

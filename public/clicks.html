@@ -21,18 +21,25 @@
 			var ctx = canvas.getContext("2d");
 			return ctx;
 		}
+
+//		var inputVal = [{"counter":10,"created_at":"2012-08-21T07:02:16Z","id":1,"name_val":"Top","rate":null,"updated_at":"2012-08-21T20:56:14Z"},{"counter":15,"created_at":"2012-08-21T07:02:24Z","id":2,"name_val":"Middle","rate":null,"updated_at":"2012-08-21T20:56:16Z"},{"counter":6,"created_at":"2012-08-21T07:02:32Z","id":3,"name_val":"Bottom","rate":null,"updated_at":"2012-08-21T20:40:26Z"}];
+	 	// var countVal = [];
+		// countVal[0] = inputVal[0].counter;
+		// countVal[1] = inputVal[1].counter;
+		// countVal[2] = inputVal[2].counter;
+
+		// var labelVal = [];
+		// labelVal[0] = inputVal[0].name;
+		// labelVal[1] = inputVal[1].name;
+		// labelVal[2] = inputVal[2].name;
 //GAH   WHY DOESN'T THIS WORK!!!!
-
-		var inputVal = [{"counter":10,"created_at":"2012-08-21T07:02:16Z","id":1,"name":"Top","rate":null,"updated_at":"2012-08-21T20:56:14Z"},{"counter":15,"created_at":"2012-08-21T07:02:24Z","id":2,"name":"Middle","rate":null,"updated_at":"2012-08-21T20:56:16Z"},{"counter":6,"created_at":"2012-08-21T07:02:32Z","id":3,"name":"Bottom","rate":null,"updated_at":"2012-08-21T20:40:26Z"}];
-    var countVal = [];
-		countVal[0] = inputVal[0].counter;
-		countVal[1] = inputVal[1].counter;
-		countVal[2] = inputVal[2].counter;
-
+		var countVal = [];
 		var labelVal = [];
-		labelVal[0] = inputVal[0].name;
-		labelVal[1] = inputVal[1].name;
-		labelVal[2] = inputVal[2].name;
+
+		for (var i = inputVal.length - 1; i >= 0; i--) {
+			countVal[i] = inputVal[i].counter;
+			labelVal[i] = inputVal[i].name_val;
+		};
 
 		
 		var ctx = createCanvas("graphDiv1");

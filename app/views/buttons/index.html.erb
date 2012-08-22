@@ -11,6 +11,16 @@
   <% end %>
 
 <br />
-
 <% end %>
-<%= link_to 'New Button', new_button_path %>
+<%= form_tag ({controller: 'buttons', action: 'display'}) do %>
+  <div class='display_clicks'>
+    <%= submit_tag('Graph', class: "btn btn-xlarge") %>
+  </div>
+<% end %>
+
+<br />
+<%= form_tag ({controller: 'buttons', action: 'clear'}) do %>
+  <div class='delete_clicks'>
+    <%= submit_tag('Delete Clicks', class: "btn btn-xlarge") %>
+  </div>
+<% end %>

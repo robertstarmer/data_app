@@ -66,7 +66,7 @@ class ButtonsController < ApplicationController
 
 
   def display
-    @buttons = Button.all
+    @buttons_json = Button.all.to_json
 
     respond_to do |format|
       format.html # display.html.erb
@@ -74,5 +74,12 @@ class ButtonsController < ApplicationController
     end
   end
 
+  def clear
+    Button.all.each do |button|
+      button[:counter] = 0
+      button.save
+    end
+    redirect_to root_path, notice: 'Buttons reset!'
+  end
 
 end
